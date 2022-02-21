@@ -94,6 +94,10 @@ public class Player extends Entity{
 			 int objIndex = gp.cChecker.checkObject(this, true);
 			 pickUpObject(objIndex);
 			 
+			 // CHECK NPC COLLISION
+			 int npcIndex = gp.cChecker.checkEntity(this, gp.npc);
+			 interactNPC(npcIndex);
+			 
 			 
 			 // IF COLLISION IS FALSE, PLAYER CAN MOVE
 			 if(collisionOn == false) {
@@ -142,6 +146,90 @@ public class Player extends Entity{
 			}
 	}
 	
+	public void interactNPC(int i) {
+		
+		if(i != 999) {
+			System.out.println("NPC hit");
+		}
+	}
+	
+	
+	public void draw(Graphics2D g2) {
+		
+		BufferedImage image = null;
+		
+		int screenX = worldX - gp.player.worldX + gp.player.screenX;
+		int screenY = worldY - gp.player.worldY + gp.player.screenY;
+		
+		if(worldX + gp.tileSize > gp.player.worldX - gp.player.screenX && 
+		   worldX - gp.tileSize < gp.player.worldX + gp.player.screenX && 
+		   worldY + gp.tileSize > gp.player.worldY - gp.player.screenY && 
+		   worldY - gp.tileSize < gp.player.worldY + gp.player.screenY) {
+			
+			switch(direction) {
+			case "up":
+				if(spriteNum == 1) {
+					image = up1;
+				}
+				if(spriteNum == 2) {
+					image = upidle;
+				}
+				if(spriteNum == 3) {
+					image = up2;
+				}
+				if(spriteNum == 4) {
+					image = upidle;
+				}
+				break;
+			case "down":
+				if(spriteNum == 1) {
+					image = down1;
+				}
+				if(spriteNum == 2) {
+					image = downidle;
+				}
+				if(spriteNum == 3) {
+					image = down2;
+				}
+				if(spriteNum == 4) {
+					image = downidle;
+				}
+				break;
+			case "left":
+				if(spriteNum == 1) {
+					image = left1;
+				}
+				if(spriteNum == 2) {
+					image = leftidle;
+				}
+				if(spriteNum == 3) {
+					image = left2;
+				}
+				if(spriteNum == 4) {
+					image = leftidle;
+				}
+				break;
+			case "right":
+				if(spriteNum == 1) {
+					image = right1;
+				}
+				if(spriteNum == 2) {
+					image = rightidle;
+				}
+				if(spriteNum == 3) {
+					image = right2;
+				}
+				if(spriteNum == 4) {
+					image = rightidle;
+				}
+				break;
+					
+			}
+		}
+			
+			g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+		}
 	
 
 }
+

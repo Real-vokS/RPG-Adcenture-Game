@@ -40,6 +40,7 @@ public class UI {
 		g2.setFont(arial_40);
 		g2.setColor(Color.white);
 		
+		
 		if(gp.gameState == gp.playState) {
 			// Do playState stuff later
 		}
@@ -52,7 +53,6 @@ public class UI {
 	}
 	
 	public void drawPauseScreen() {	
-		
 		g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 80F));
 		String text = "PAUSED";
 		int x = getXforCenteredText(text);
