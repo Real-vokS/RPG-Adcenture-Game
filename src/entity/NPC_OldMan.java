@@ -28,6 +28,9 @@ public class NPC_OldMan extends Entity{
 		solidAreaDefaultY = solidArea.y;
 		solidArea.width = 24;
 		solidArea.height = 24;
+		
+		setDialogue();
+		
 	}
 	
 	public void getImage() {
@@ -45,6 +48,13 @@ public class NPC_OldMan extends Entity{
 		right2 = setup("/npc/oldman_right_2");
 		rightidle = setup("/npc/oldman_right_idle");
 		
+	}
+	
+	public void setDialogue() {
+		dialogues[0] = "Hello, traveler!";
+		dialogues[1] = "You have traveled a long way to \nthis island.";
+		dialogues[2] = "Are you here to start a new grand \nADVENTURE?";
+		dialogues[3] = "well, good luck to you.";
 	}
 	
 	public void setAction() {
@@ -78,6 +88,11 @@ public class NPC_OldMan extends Entity{
 		}
 		
 		
+	}
+	
+	public void speak() {
+		
+		super.speak();
 	}
 
 }
