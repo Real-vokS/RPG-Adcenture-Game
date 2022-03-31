@@ -54,6 +54,7 @@ public class Entity {
 			break;
 		case "right":
 			direction = "left";
+			break;
 		}
 	}
 	public void update() {

@@ -19,6 +19,7 @@ public class NPC_OldMan extends Entity{
 		speed = 1;
 		
 		getImage();
+		setDialogue();
 		
 		// HitBox X, Y, Width, Height
 		solidArea = new Rectangle();
@@ -28,9 +29,6 @@ public class NPC_OldMan extends Entity{
 		solidAreaDefaultY = solidArea.y;
 		solidArea.width = 24;
 		solidArea.height = 24;
-		
-		setDialogue();
-		
 	}
 	
 	public void getImage() {
@@ -51,10 +49,10 @@ public class NPC_OldMan extends Entity{
 	}
 	
 	public void setDialogue() {
-		dialogues[0] = "Hello, traveler!";
-		dialogues[1] = "You have traveled a long way to \nthis island.";
-		dialogues[2] = "Are you here to start a new grand \nADVENTURE?";
-		dialogues[3] = "well, good luck to you.";
+		dialogues[0] = "I lost my loved ones to this island.";
+		dialogues[1] = "So you have choosen to come here on this \nisland.";
+		dialogues[2] = "Are you looking for an adventure?";
+		dialogues[3] = "Good luck to you.";
 	}
 	
 	public void setAction() {
@@ -86,13 +84,12 @@ public class NPC_OldMan extends Entity{
 			actionLockCounter = 0;
 			
 		}
-		
-		
 	}
 	
 	public void speak() {
 		
+		// For future unique char stuff
+		
 		super.speak();
 	}
-
 }
