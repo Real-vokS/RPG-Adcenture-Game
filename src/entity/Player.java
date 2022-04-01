@@ -18,8 +18,6 @@ public class Player extends Entity{
 	public final int screenX;
 	public final int screenY;
 	
-	// public int hasKey = 0;
-	
 	public Player(GamePanel gp, KeyHandler keyH) {
 		
 		super(gp);
@@ -49,6 +47,11 @@ public class Player extends Entity{
 		worldY = gp.tileSize * 21;
 		speed = 4;
 		direction = "down";
+		
+		//PLAYER STATS
+		maxLife = 10;
+		life = maxLife;
+		
 	}
 	
 	public void getPlayerImage() {
@@ -97,6 +100,9 @@ public class Player extends Entity{
 			 // CHECK NPC COLLISION
 			 int npcIndex = gp.cChecker.checkEntity(this, gp.npc);
 			 interactNPC(npcIndex);
+			 
+			 //CHECK EVENT
+			 gp.eHandler.checkEvent();
 			 
 			 
 			 // IF COLLISION IS FALSE, PLAYER CAN MOVE
@@ -157,7 +163,6 @@ public class Player extends Entity{
 				
 			}
 		}
-		gp.keyH.enterPressed = false;
 	}
 	
 	
